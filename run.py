@@ -18,9 +18,9 @@ def order():
 # Create a text/plain message
     template = 'Name: {0}\nPhone: {1}\nDelivery Address: {2}\nOrder: {3}'
     elements = ['name', 'phone', 'address', 'order']
-    args = [request.form[arg] for arg in elements]
-    msg = MIMEText(template.format(*args))
-
+    #args = [request.form[arg] for arg in elements]
+    msg = MIMEText("Here's your order: ")
+    #msg = template.format(*elements)
     me = 'no-reply@noreply.net'
     #you = 'lukemeados@gmail.com'
     you = 'deanjohnson222@gmail.com'
@@ -30,13 +30,23 @@ def order():
     msg['Subject'] = '[DELIVERY] Sent at %s.' % date.today()
     msg['From'] = me
     msg['To'] = you
-
 # Send the message via our own SMTP server, but don't include the
 # envelope header.
-    s = smtplib.SMTP('localhost')
-    s.sendmail(me, [you], msg.as_string())
-    s.quit()
+    fromaddr = 'deanjohnson222@gmail.com'
+    toaddrs  = 'deanjohnson222@gmail.com'
+
+# Credentials (if needed)
+    username = 'deanjohnson222'
+    password = 'Dorked123%%'
+
+# The actual mail send
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.starttls()
+    server.login(username,password)
+    server.sendmail(fromaddr, toaddrs, msg)
+    server.quit()
+
     return render_template("order_submitted.html")
 
-
-app.run("127.0.0.1", 80, debug=True)
+if __name__ == "__main__":
+    app.run("0.0.0.0", 80, debug=True)
