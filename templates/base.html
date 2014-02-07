@@ -1,0 +1,52 @@
+<html>
+    <head>
+        {%block css%}
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.css') }}" />
+        <style type="text/css">
+            .box_textshadow {
+                 text-shadow: 2px 2px 0px #000000; /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+            }
+            .navbar-search {
+                padding-left: 100px;
+                padding-top: 6px;
+            }
+            .background {
+                background-color:white;
+                border-radius:10px;
+                max-width=50%;
+                overflow:hidden;
+            }
+            body {
+                background-color: #4DFF4D;
+            
+            }
+        </style>
+        {%endblock%}
+
+        {% block title %}
+            <title>Zippy Express</title>
+        {% endblock %}
+        {%block javascripts%}
+            <script type="text/javascript" src="{{url_for('static',filename='js/jquery.min.js') }}"></script>
+        {%endblock%}
+        {%block scripts%}
+
+        {% endblock %}
+    </head>
+
+        <div id="header">
+            {%block header%}
+            {%endblock%}
+        </div>
+
+        <div id="content" class="hero-unit">
+            {%block content%}
+            {%endblock%}
+        </div>
+
+        <div id="footer">
+            {%block footer%}
+            {%endblock%}
+        </div>
+    </body>
+</html>

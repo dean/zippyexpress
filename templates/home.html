@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+
+<style>
+.center-div
+{
+     margin: 0 auto;
+     width: 70%; 
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="center-div">
+<h1 class="center">
+Zippy Express<br><br>
+</h1>
+<h3>
+You need food? We deliver it for a $4 charge per location. :)
+CASH ONLY!!!
+</h3>
+<form action="/order" method="POST">
+    <P>
+    <LABEL for="name">Name: </LABEL>
+              <INPUT type="text" id="name"><BR>
+    <LABEL for="phone">Phone: </LABEL>
+              <INPUT type="text" id="phone"><BR>
+    <LABEL for="address">Delivery Address: </LABEL>
+              <INPUT type="text" id="address"><BR>
+    <LABEL for="instructions">Order: </LABEL>
+              <INPUT type="textbox" id="instructions"><BR><BR>
+    <INPUT type="submit" class="btn" value="Order"> <INPUT class="btn" type="reset">
+    </P>
+
+</form>
+<br>
+<h3>Like us on Facebook!</h3>
+<iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/textbookxchange"
+    scrolling="no" frameborder="0"
+    style="border:none; width:450px; height:80px"></iframe>
+</div>
+{% endblock %}
