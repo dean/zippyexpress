@@ -21,17 +21,17 @@ Zippy Express<br><br>
 You need food? We deliver it for a $4 charge per location. :)
 CASH ONLY!!!
 </h3>
-<form action="/order" method="POST">
+<form action="{{ url_for('home') }}" method="POST">
     <P>
     <LABEL for="name">Name: </LABEL>
-              <INPUT type="text" id="name"><BR>
+              <INPUT type="text" id="name" name="name"><BR>
     <LABEL for="phone">Phone: </LABEL>
-              <INPUT type="text" id="phone"><BR>
+              <INPUT type="text" id="phone" name="phone"><BR>
     <LABEL for="address">Delivery Address: </LABEL>
-              <INPUT type="text" id="address"><BR>
+              <INPUT type="text" id="address" name="address"><BR>
     <LABEL for="order">Order: </LABEL>
-              <INPUT type="textbox" id="order"><BR><BR>
-    <INPUT type="submit" class="btn" value="Order"> <INPUT class="btn" type="reset">
+              <INPUT type="textbox" id="order"name="order"><BR><BR>
+    <INPUT type="submit" class="btn"> <INPUT type="reset" class="btn">
     </P>
 
 </form>
